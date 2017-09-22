@@ -1,15 +1,24 @@
-
+/*
+ * Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
+ */
 package io.j4c.ecommerce.inventory;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+public interface InventoryRepository {
 
-@RepositoryRestResource(collectionResourceRel = "inventory", path = "inventory2")
-public interface InventoryRepository extends MongoRepository<ProductDO, Integer> {
+	/*
+	 * Get all products
+	 */
+	List<ProductDO> findAll();
 
-	List<ProductDO> findById(@Param("id") Integer id);
+	/*
+	 * Get productb by id
+	 */
+	ProductDO findOne(Integer id);
 
+	/*
+	 * Insert a product
+	 */
+	void insert(ProductDO product);
 }

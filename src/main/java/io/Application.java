@@ -1,9 +1,6 @@
 
 package io;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -23,34 +20,34 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 	
-
     @Bean
     CommandLineRunner init(InventoryRepository inventoryRepository) {
 
         return args -> {
 
-        	List<ProductDO> products = new ArrayList<ProductDO>();
-            		
-            products.add(new ProductDO(5,5));
-            products.add(new ProductDO(10,4));
-            products.add(new ProductDO(13,3));
-            products.add(new ProductDO(11,8));
-            products.add(new ProductDO(1,6));
-            products.add(new ProductDO(8,5));
-            products.add(new ProductDO(2,8));
-            products.add(new ProductDO(4,7));
-            products.add(new ProductDO(15,1));
-            products.add(new ProductDO(7,10));
-            products.add(new ProductDO(6,2));
-            products.add(new ProductDO(9,5));
-            products.add(new ProductDO(14,3));
-            products.add(new ProductDO(12,1));
-            products.add(new ProductDO(3,10));
-            
+        	/*
+        	 * Insert sample data
+        	 */
             int count = inventoryRepository.findAll().size();
             if ( count == 0) {
-            	logger.info("Insert " + products.size() + " sample inventory data.");
-            	inventoryRepository.insert(products);
+            	logger.info("Insert sample inventory data.");
+            	
+                inventoryRepository.insert(new ProductDO(5,5));
+                inventoryRepository.insert(new ProductDO(10,4));
+                inventoryRepository.insert(new ProductDO(13,3));
+                inventoryRepository.insert(new ProductDO(11,8));
+                inventoryRepository.insert(new ProductDO(1,6));
+                inventoryRepository.insert(new ProductDO(8,5));
+                inventoryRepository.insert(new ProductDO(2,8));
+                inventoryRepository.insert(new ProductDO(4,7));
+                inventoryRepository.insert(new ProductDO(15,1));
+                inventoryRepository.insert(new ProductDO(7,10));
+                inventoryRepository.insert(new ProductDO(6,2));
+                inventoryRepository.insert(new ProductDO(9,5));
+                inventoryRepository.insert(new ProductDO(14,3));
+                inventoryRepository.insert(new ProductDO(12,1));
+                inventoryRepository.insert(new ProductDO(3,10));
+
             } else {
             	logger.info(count + " inventory data already available.");
             }
