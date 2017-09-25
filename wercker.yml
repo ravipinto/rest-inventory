@@ -37,7 +37,6 @@ register:
             -H 'cache-control: no-cache' \
             -H 'content-type: application/json' \
             -d '{
-            "description": "test service description",
             "implementation": {
                   "executions": {
                       "request": [
@@ -55,7 +54,8 @@ register:
                           "config": {
                               "endpoints": [
                                   {
-                                      "serviceAccount": "109",
+                                      "name": "CCS Oracle Public Cloud",
+                                      "serviceAccount": "114",
                                       "useProxy": false,
                                       "url": "http://'"$INVENTORY_URL"'"
                                   }
@@ -69,6 +69,7 @@ register:
                           "config": {}
                       }
                   ]
-              }
+              },
+              "description": "Inventory Service from Container Management Cloud Service"
             }'
           
