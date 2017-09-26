@@ -3,11 +3,14 @@
  */
 package io.j4c.ecommerce.inventory;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Product entity.
  */
 public class ProductDO {
 
+	@JsonProperty(value="product-id")
     private Integer id;
     private Integer amount;
 

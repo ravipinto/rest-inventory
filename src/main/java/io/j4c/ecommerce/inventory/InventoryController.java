@@ -76,9 +76,33 @@ public class InventoryController {
 		} else {
 			HashMap<String, String> result = new HashMap<String, String>();
 			product.setAmount(product.getAmount() - stockout.getAmount());
-			inventoryRepository.insert(product);
 			result.put("remaining", product.getAmount().toString());
 			response = new ResponseEntity<HashMap<String, String>>(result, HttpStatus.OK);
+		}
+
+		return response;
+	}
+	
+	@RequestMapping(value = "/inventory", method = RequestMethod.POST)
+	public ResponseEntity<HashMap<String, String>> insertProduct(@RequestBody ProductDO product) {
+
+		ResponseEntity<HashMap<String, String>> response = null;
+		HashMap<String, String> result = new HashMap<String, String>();
+
+		try {
+			ProductDO existingProduct = inventoryRepository.findOne(product.getId());
+			
+			if (existingProduct == null) {
+				inventoryRepository.insert(product);
+			} else {
+				existingProduct.setAmount(existingProduct.getAmount() + product.getAmount());
+			}
+
+			result.put("amount", existingProduct.getAmount().toString());
+			response = new ResponseEntity<HashMap<String,String>>(result, HttpStatus.OK);
+		} catch (Exception e) {
+			result.put("error", e.getMessage());
+			response = new ResponseEntity<HashMap<String,String>>(result, HttpStatus.BAD_REQUEST);
 		}
 
 		return response;
