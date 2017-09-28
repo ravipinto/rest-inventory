@@ -22,7 +22,7 @@ public class InventoryController {
 	@Autowired
 	private InventoryRepository inventoryRepository;
 
-	@RequestMapping(value = "/inventory2", method = RequestMethod.GET)
+	@RequestMapping(value = "/inventory", method = RequestMethod.GET)
 	public ResponseEntity<Collection<ProductDO>> products() {
 
 		ResponseEntity<Collection<ProductDO>> response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
