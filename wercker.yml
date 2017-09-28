@@ -21,6 +21,13 @@ restart:
     - script:
         name: curl POST
         code: curl -k -X POST $DEPLOYMENT_WEBHOOK
+testapp:
+  steps:
+    - internal/watch:
+        code: java -jar  /pipeline/source/target/rest-inventory-mongodb-0.1.0.jar
+    - script: 
+        name: curl test
+        code: curl http://localhost:8080/api/inventory
 register:
   steps:
     # Register Inventory REST service in APIP
