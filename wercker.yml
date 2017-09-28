@@ -29,6 +29,7 @@ testapp:
               java -jar  /pipeline/source/target/rest-inventory-mongodb-0.1.0.jar &
               sleep 10
               curl http://localhost:8080/api/inventory
+              exit -1
 register:
   steps:
     # Register Inventory REST service in APIP
