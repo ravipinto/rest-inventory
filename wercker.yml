@@ -26,7 +26,8 @@ testapp:
     - script:
         name: curl test
         code: | 
-              java -jar  /pipeline/source/target/rest-inventory-mongodb-0.1.0.jar
+              java -jar  /pipeline/source/target/rest-inventory-mongodb-0.1.0.jar &
+              sleep (10)
               curl http://localhost:8080/api/inventory
 register:
   steps:
