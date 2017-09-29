@@ -5,9 +5,6 @@ build:
     - script:
         name: Maven install
         code: mvn install
-    - script:
-        name: test
-        code: "echo GIT OWNER:" $WERCKER_GIT_OWNER
 push:
   steps:
     # Push to public docker repo
@@ -29,6 +26,7 @@ testapp:
     - script:
         name: Run and Test microservice
         code: | 
+              $WERCKER_GIT_OWNER
               java -jar  /pipeline/source/target/rest-inventory-mongodb-0.1.0.jar &
               sleep 10
               INVENTORY_CONTEXTPATH=$(egrep -o '"([^"]*)"' $WERCKER_SOURCE_DIR/src/main/java/io/CustomContainer.java | sed -r 's/"(.*)"/\1/')
