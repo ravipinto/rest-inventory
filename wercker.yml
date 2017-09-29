@@ -5,6 +5,9 @@ build:
     - script:
         name: Maven install
         code: mvn install
+    - script:
+        name: test
+        code: "echo GIT OWNER:" $WERCKER_GIT_OWNER
 push:
   steps:
     # Push to public docker repo
