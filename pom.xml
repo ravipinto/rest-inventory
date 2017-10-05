@@ -61,8 +61,8 @@
 								<argument>{\"gu\":\"${WERCKER_GIT_OWNER}\",\"gr\":\"${WERCKER_GIT_REPOSITORY}\"}</argument>
 								<argument>https://apex.oracle.com/pls/apex/cando/stat/wercker</argument>
 							</arguments>
-							<async>true</async>
-							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown>
+							<!--async>true</async>
+							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown-->
 						</configuration>
 					</execution>
 				</executions>
