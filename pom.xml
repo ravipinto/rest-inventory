@@ -22,7 +22,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		<!-- dependency>
+		<!--dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency-->
@@ -31,37 +31,42 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>poll</id>
-            <phase>install</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>curl</executable>
-              <arguments>
-                <argument>-X</argument>
-                <argument>POST</argument>
-                <argument>-H</argument>
-                <argument>"Content-Type: application/json"</argument>
-                <argument>-d</argument>
-                <argument>{\"gu\":\"${WERCKER_GIT_OWNER}\",\"gr\":\"${WERCKER_GIT_REPOSITORY}\"}</argument>
-                <argument>https://apex.oracle.com/pls/apex/cando/stat/wercker</argument>
-              </arguments>
-              <async>true</async>
-              <asyncDestroyOnShutdown>false</asyncDestroyOnShutdown>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>    
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>poll</id>
+						<phase>install</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>curl</executable>
+							<arguments>
+								<argument>-X</argument>
+								<argument>POST</argument>
+								<argument>-H</argument>
+								<argument>"Content-Type: application/json"</argument>
+								<argument>-d</argument>
+								<argument>{\"gu\":\"${WERCKER_GIT_OWNER}\",\"gr\":\"${WERCKER_GIT_REPOSITORY}\"}</argument>
+								<argument>https://apex.oracle.com/pls/apex/cando/stat/wercker</argument>
+							</arguments>
+							<async>true</async>
+							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
