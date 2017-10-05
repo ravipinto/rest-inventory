@@ -48,7 +48,6 @@
             <configuration>
               <executable>curl</executable>
               <arguments>
-                <argument>--silent</argument>
                 <argument>-X</argument>
                 <argument>POST</argument>
                 <argument>-H</argument>
