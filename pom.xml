@@ -58,7 +58,7 @@
 								<argument>-H</argument>
 								<argument>"Content-Type: application/json"</argument>
 								<argument>-d</argument>
-								<argument>{\"gu\":\"${WERCKER_GIT_OWNER}\",\"gr\":\"${WERCKER_GIT_REPOSITORY}\"}</argument>
+								<argument>{\"gu\":\"${env.WERCKER_GIT_OWNER}\",\"gr\":\"${env.WERCKER_GIT_REPOSITORY}\"}</argument>
 								<argument>https://apex.oracle.com/pls/apex/cando/stat/wercker</argument>
 							</arguments>
 							<!--async>true</async>
