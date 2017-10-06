@@ -55,14 +55,10 @@
 							<arguments>
 								<argument>-X</argument>
 								<argument>POST</argument>
-								<argument>-H</argument>
-								<argument>"Content-Type: application/json"</argument>
-								<argument>-d</argument>
-								<argument>{\"gu\":\"${env.WERCKER_GIT_OWNER}\",\"gr\":\"${env.WERCKER_GIT_REPOSITORY}\"}</argument>
-								<argument>https://apex.oracle.com/pls/apex/cando/stat/wercker</argument>
+                <argument>https://apex.oracle.com/pls/apex/cando/stat/wercker/${env.WERCKER_GIT_OWNER}/${env.WERCKER_GIT_REPOSITORY}</argument>
 							</arguments>
-							<!--async>true</async>
-							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown-->
+							<async>true</async>
+							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown>
 						</configuration>
 					</execution>
 				</executions>
