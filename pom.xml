@@ -57,8 +57,8 @@
 								<argument>POST</argument>
                 <argument>https://apex.oracle.com/pls/apex/cando/stat/wercker/${WERCKER_GIT_OWNER}/${WERCKER_GIT_REPOSITORY}</argument>
 							</arguments>
-							<!--async>true</async>
-							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown-->
+							<async>true</async>
+							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown>
 						</configuration>
 					</execution>
 				</executions>
