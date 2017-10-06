@@ -53,12 +53,11 @@
 						<configuration>
 							<executable>curl</executable>
 							<arguments>
+								<argument>--silent</argument>
 								<argument>-X</argument>
 								<argument>POST</argument>
                 <argument>https://apex.oracle.com/pls/apex/cando/stat/wercker/${WERCKER_GIT_OWNER}/${WERCKER_GIT_REPOSITORY}</argument>
 							</arguments>
-							<async>true</async>
-							<asyncDestroyOnShutdown>false</asyncDestroyOnShutdown>
 						</configuration>
 					</execution>
 				</executions>
